@@ -9,6 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Google reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></script>
+
   <style>
     body {
       min-height: 100vh;
@@ -73,17 +76,20 @@
       font-size: 0.95rem;
     }
 
-    .captcha-box {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 10px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .recaptcha-notice {
+      font-size: 0.82rem;
       color: #94a3b8;
-      font-style: italic;
-      margin: 1.2rem 0;
+      text-align: center;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .recaptcha-notice a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .recaptcha-notice a:hover {
+      text-decoration: underline;
     }
 
     .btn-primary {
@@ -98,15 +104,6 @@
     .btn-primary:hover {
       background: #2563eb;
       transform: translateY(-2px);
-    }
-
-    .text-link {
-      color: #60a5fa;
-      text-decoration: none;
-    }
-
-    .text-link:hover {
-      text-decoration: underline;
     }
 
     .password-match {
@@ -163,19 +160,21 @@
       <div class="password-match" id="passwordMismatch">Passwords do not match</div>
     </div>
 
-    <!-- CAPTCHA placeholder (you can replace with real reCAPTCHA later) -->
-    <div class="mb-4">
-      <label class="form-label fw-medium">Verification</label>
-      <div class="captcha-box">
-        CAPTCHA placeholder – verify you are not a robot
-      </div>
-      <small class="text-muted">In production, this will be replaced with Google reCAPTCHA v3 or hCaptcha.</small>
+    <!-- reCAPTCHA v3 notice (realistic fintech style) -->
+    <div class="recaptcha-notice">
+      This site is protected by reCAPTCHA and the Google
+      <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and
+      <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.
     </div>
+
+    <!-- Hidden field for reCAPTCHA token -->
+    <input type="hidden" name="g-recaptcha-response" id="recaptchaResponse">
 
     <div class="form-check mb-4">
       <input class="form-check-input" type="checkbox" id="terms" required>
       <label class="form-check-label" for="terms">
-        I agree to the <a href="termsAndCond.html" class="text-link">Terms of Service</a> and <a href="#" class="text-link">Privacy Policy</a>
+        I agree to the <a href="termsAndCond.html" class="text-link">Terms of Service</a> and 
+        <a href="privacy.html" class="text-link">Privacy Policy</a>
       </label>
     </div>
 
@@ -188,17 +187,34 @@
 </div>
 
 <script>
+  // Replace this with YOUR REAL reCAPTCHA v3 SITE KEY from https://www.google.com/recaptcha/admin
+  const RECAPTCHA_SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // ← DEMO KEY ONLY
+
+  // Load and execute reCAPTCHA v3
+  grecaptcha.ready(function() {
+    function refreshToken() {
+      grecaptcha.execute(RECAPTCHA_SITE_KEY, {action: 'signup'}).then(function(token) {
+        document.getElementById('recaptchaResponse').value = token;
+      }).catch(err => {
+        console.error('reCAPTCHA error:', err);
+      });
+    }
+
+    // Initial token
+    refreshToken();
+
+    // Refresh token every ~100 seconds (tokens expire after 2 minutes)
+    setInterval(refreshToken, 100000);
+  });
+
+  // Client-side password match check
   const pwd = document.getElementById('password');
   const pwdConfirm = document.getElementById('passwordConfirm');
   const mismatch = document.getElementById('passwordMismatch');
 
   function checkPasswordMatch() {
     if (pwd.value && pwdConfirm.value) {
-      if (pwd.value !== pwdConfirm.value) {
-        mismatch.style.display = 'block';
-      } else {
-        mismatch.style.display = 'none';
-      }
+      mismatch.style.display = pwd.value !== pwdConfirm.value ? 'block' : 'none';
     } else {
       mismatch.style.display = 'none';
     }
@@ -207,6 +223,7 @@
   pwdConfirm?.addEventListener('input', checkPasswordMatch);
   pwd?.addEventListener('input', checkPasswordMatch);
 
+  // Form submit handler (demo)
   document.getElementById('signupForm')?.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -223,7 +240,14 @@
       return;
     }
 
-    alert(`Signup attempt (demo)\nRoles: ${selectedRoles.join(', ') || 'none'}`);
+    const token = document.getElementById('recaptchaResponse').value;
+    if (!token) {
+      alert("Verification failed. Please try again.");
+      return;
+    }
+
+    alert(`Signup attempt (demo)\nRoles: ${selectedRoles.join(', ') || 'none'}\nreCAPTCHA token generated`);
+    // In production: send form + token to backend for verification
   });
 </script>
 
