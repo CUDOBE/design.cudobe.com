@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account – Codobe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a2540 0%, #0f3d6e 100%);
+      font-family: 'Inter', sans-serif;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-container {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2.4rem 2.2rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .brand h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: white;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .brand .subtitle {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-top: 0.3rem;
+    }
+
+    .role-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50px;
+      padding: 4px;
+      margin-bottom: 1.8rem;
+    }
+
+    .role-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      font-weight: 500;
+      padding: 0.65rem;
+      border-radius: 50px;
+      transition: all 0.25s;
+    }
+
+    .role-btn.active {
+      background: #3b82f6;
+      color: white;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.35);
+    }
+
+    .form-floating > .form-control,
+    .form-floating > .form-control-plaintext {
+      padding: 1rem 1.1rem;
+      height: 3.4rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      border-radius: 10px;
+    }
+
+    .form-floating > label {
+      color: #94a3b8;
+      padding: 1rem 1.1rem;
+    }
+
+    .form-floating > .form-control:focus,
+    .form-floating > .form-control:not(:placeholder-shown) {
+      background: rgba(255,255,255,0.08);
+      border-color: #60a5fa;
+    }
+
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label {
+      color: #60a5fa;
+      transform: scale(0.85) translateY(-0.6rem) translateX(0.4rem);
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      border: none;
+      border-radius: 10px;
+      padding: 0.85rem;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    .btn-google {
+      background: white;
+      color: #1e293b;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.75rem;
+      font-weight: 500;
+    }
+
+    .btn-google:hover {
+      background: #f8fafc;
+    }
+
+    .btn-google i {
+      color: #4285F4;
+      margin-right: 10px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1.6rem 0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .divider span {
+      padding: 0 1.25rem;
+    }
+
+    .text-link {
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    .password-match {
+      font-size: 0.82rem;
+      margin-top: -0.3rem;
+      margin-bottom: 1rem;
+      color: #f87171;
+      display: none;
+    }
+
+    .form-check-label {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .form-check-input:checked {
+      background-color: #3b82f6;
+      border-color: #3b82f6;
+    }
+
+    .row.g-3 > div {
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-container">
+  <div class="brand">
+    <h1>Codobe</h1>
+    <div class="subtitle">Secure Cross-Border Trade</div>
+  </div>
+
+  <div class="role-toggle">
+    <button class="role-btn active" onclick="selectRole(this)">Importer</button>
+    <button class="role-btn" onclick="selectRole(this)">Exporter</button>
+  </div>
+
+  <form id="signupForm">
+    <div class="row g-3">
+      <div class="col-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+          <label for="firstName">First name</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+          <label for="lastName">Last name</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-floating mt-3 mb-3">
+      <input type="text" class="form-control" id="company" placeholder="Company name" required>
+      <label for="company">Company / Business name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+      <label for="email">Email address</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="password" placeholder="Password" required>
+      <label for="password">Password</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm password" required>
+      <label for="passwordConfirm">Confirm password</label>
+      <div class="password-match" id="passwordMismatch">Passwords do not match</div>
+    </div>
+
+    <div class="form-check mb-4">
+      <input class="form-check-input" type="checkbox" id="terms" required>
+      <label class="form-check-label" for="terms">
+        I agree to the <a href="#" class="text-link">Terms</a> & <a href="#" class="text-link">Privacy Policy</a>
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mb-3">Create Account</button>
+
+    <div class="divider">
+      <span>or</span>
+    </div>
+
+    <button type="button" class="btn btn-google w-100 d-flex align-items-center justify-content-center">
+      <i class="fab fa-google"></i> Sign up with Google
+    </button>
+  </form>
+
+  <p class="text-center mt-4 mb-0 small">
+    Already have an account? <a href="login.html" class="text-link">Sign in</a>
+  </p>
+</div>
+
+<script>
+  function selectRole(btn) {
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  const pwd = document.getElementById('password');
+  const pwdConfirm = document.getElementById('passwordConfirm');
+  const mismatch = document.getElementById('passwordMismatch');
+
+  function checkPasswordMatch() {
+    if (pwd.value && pwdConfirm.value) {
+      if (pwd.value !== pwdConfirm.value) {
+        mismatch.style.display = 'block';
+        pwdConfirm.classList.add('is-invalid');
+      } else {
+        mismatch.style.display = 'none';
+        pwdConfirm.classList.remove('is-invalid');
+      }
+    } else {
+      mismatch.style.display = 'none';
+    }
+  }
+
+  pwdConfirm?.addEventListener('input', checkPasswordMatch);
+  pwd?.addEventListener('input', checkPasswordMatch);
+
+  document.getElementById('signupForm')?.addEventListener('submit', e => {
+    e.preventDefault();
+    if (pwd.value !== pwdConfirm.value) {
+      alert("Passwords don't match");
+      return;
+    }
+    alert('Account creation attempt (demo)');
+  });
+</script>
+
+</body>
+</html>
