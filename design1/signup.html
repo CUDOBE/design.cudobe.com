@@ -18,147 +18,91 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 30px 20px;
     }
 
     .auth-container {
-      background: rgba(15, 23, 42, 0.65);
+      background: rgba(15, 23, 42, 0.68);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.09);
       border-radius: 16px;
-      padding: 2.4rem 2.2rem;
+      padding: 2.5rem 2.3rem;
       width: 100%;
-      max-width: 440px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      max-width: 460px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.55);
     }
 
     .brand {
       text-align: center;
-      margin-bottom: 1.8rem;
+      margin-bottom: 2rem;
     }
 
     .brand h1 {
-      font-size: 2.1rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: white;
-      margin: 0;
-      letter-spacing: -0.5px;
     }
 
     .brand .subtitle {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #94a3b8;
-      margin-top: 0.3rem;
     }
 
-    .role-toggle {
-      display: flex;
+    .form-floating > .form-control {
       background: rgba(255,255,255,0.06);
-      border-radius: 50px;
-      padding: 4px;
-      margin-bottom: 1.8rem;
-    }
-
-    .role-btn {
-      flex: 1;
-      border: none;
-      background: transparent;
-      color: #cbd5e1;
-      font-weight: 500;
-      padding: 0.65rem;
-      border-radius: 50px;
-      transition: all 0.25s;
-    }
-
-    .role-btn.active {
-      background: #3b82f6;
-      color: white;
-      box-shadow: 0 4px 12px rgba(59,130,246,0.35);
-    }
-
-    .form-floating > .form-control,
-    .form-floating > .form-control-plaintext {
-      padding: 1rem 1.1rem;
-      height: 3.4rem;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.15);
       color: white;
       border-radius: 10px;
+      padding: 1rem 1.25rem;
+      height: 3.5rem;
     }
 
     .form-floating > label {
       color: #94a3b8;
-      padding: 1rem 1.1rem;
     }
 
-    .form-floating > .form-control:focus,
-    .form-floating > .form-control:not(:placeholder-shown) {
-      background: rgba(255,255,255,0.08);
+    .form-floating > .form-control:focus {
+      background: rgba(255,255,255,0.1);
       border-color: #60a5fa;
+      box-shadow: 0 0 0 0.25rem rgba(96,165,250,0.25);
+      color: white;
     }
 
-    .form-floating > .form-control:focus ~ label,
-    .form-floating > .form-control:not(:placeholder-shown) ~ label {
-      color: #60a5fa;
-      transform: scale(0.85) translateY(-0.6rem) translateX(0.4rem);
+    .form-check-label {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .captcha-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-style: italic;
+      margin: 1.2rem 0;
     }
 
     .btn-primary {
       background: #3b82f6;
       border: none;
       border-radius: 10px;
-      padding: 0.85rem;
+      padding: 0.9rem;
       font-weight: 600;
-      transition: all 0.25s;
+      transition: all 0.3s;
     }
 
     .btn-primary:hover {
       background: #2563eb;
-      transform: translateY(-1px);
-    }
-
-    .btn-google {
-      background: white;
-      color: #1e293b;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 0.75rem;
-      font-weight: 500;
-    }
-
-    .btn-google:hover {
-      background: #f8fafc;
-    }
-
-    .btn-google i {
-      color: #4285F4;
-      margin-right: 10px;
-    }
-
-    .divider {
-      display: flex;
-      align-items: center;
-      margin: 1.6rem 0;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: '';
-      flex: 1;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .divider span {
-      padding: 0 1.25rem;
+      transform: translateY(-2px);
     }
 
     .text-link {
       color: #60a5fa;
       text-decoration: none;
-      font-weight: 500;
     }
 
     .text-link:hover {
@@ -166,25 +110,11 @@
     }
 
     .password-match {
-      font-size: 0.82rem;
-      margin-top: -0.3rem;
-      margin-bottom: 1rem;
+      font-size: 0.85rem;
       color: #f87171;
       display: none;
-    }
-
-    .form-check-label {
-      font-size: 0.88rem;
-      color: #cbd5e1;
-    }
-
-    .form-check-input:checked {
-      background-color: #3b82f6;
-      border-color: #3b82f6;
-    }
-
-    .row.g-3 > div {
-      margin-bottom: 0.4rem;
+      margin-top: -0.4rem;
+      margin-bottom: 0.8rem;
     }
   </style>
 </head>
@@ -193,33 +123,28 @@
 <div class="auth-container">
   <div class="brand">
     <h1>Codobe</h1>
-    <div class="subtitle">Secure Cross-Border Trade</div>
-  </div>
-
-  <div class="role-toggle">
-    <button class="role-btn active" onclick="selectRole(this)">Importer</button>
-    <button class="role-btn" onclick="selectRole(this)">Exporter</button>
+    <div class="subtitle">Create your secure trade account</div>
   </div>
 
   <form id="signupForm">
-    <div class="row g-3">
-      <div class="col-6">
-        <div class="form-floating">
-          <input type="text" class="form-control" id="firstName" placeholder="First name" required>
-          <label for="firstName">First name</label>
-        </div>
+    <!-- Role selection – checkboxes -->
+    <div class="mb-4">
+      <label class="form-label fw-medium">I want to sign up as (select all that apply):</label>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" name="roles" value="importer" id="role_importer">
+        <label class="form-check-label" for="role_importer">Importer</label>
       </div>
-      <div class="col-6">
-        <div class="form-floating">
-          <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
-          <label for="lastName">Last name</label>
-        </div>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" name="roles" value="exporter" id="role_exporter">
+        <label class="form-check-label" for="role_exporter">Exporter</label>
       </div>
-    </div>
-
-    <div class="form-floating mt-3 mb-3">
-      <input type="text" class="form-control" id="company" placeholder="Company name" required>
-      <label for="company">Company / Business name</label>
+      <div class="form-check mb-2">
+        <input class="form-check-input" type="checkbox" name="roles" value="cha_agent" id="role_cha">
+        <label class="form-check-label" for="role_cha">Freelance CHA Agent</label>
+      </div>
+      <small class="text-muted d-block mt-2">
+        → Select both Importer and Exporter if you act as both.
+      </small>
     </div>
 
     <div class="form-floating mb-3">
@@ -232,41 +157,37 @@
       <label for="password">Password</label>
     </div>
 
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <input type="password" class="form-control" id="passwordConfirm" placeholder="Confirm password" required>
       <label for="passwordConfirm">Confirm password</label>
       <div class="password-match" id="passwordMismatch">Passwords do not match</div>
     </div>
 
+    <!-- CAPTCHA placeholder (you can replace with real reCAPTCHA later) -->
+    <div class="mb-4">
+      <label class="form-label fw-medium">Verification</label>
+      <div class="captcha-box">
+        CAPTCHA placeholder – verify you are not a robot
+      </div>
+      <small class="text-muted">In production, this will be replaced with Google reCAPTCHA v3 or hCaptcha.</small>
+    </div>
+
     <div class="form-check mb-4">
       <input class="form-check-input" type="checkbox" id="terms" required>
       <label class="form-check-label" for="terms">
-        I agree to the <a href="#" class="text-link">Terms</a> & <a href="#" class="text-link">Privacy Policy</a>
+        I agree to the <a href="#" class="text-link">Terms of Service</a> and <a href="#" class="text-link">Privacy Policy</a>
       </label>
     </div>
 
-    <button type="submit" class="btn btn-primary w-100 mb-3">Create Account</button>
+    <button type="submit" class="btn btn-primary w-100 mb-3">Create My Account</button>
 
-    <div class="divider">
-      <span>or</span>
-    </div>
-
-    <button type="button" class="btn btn-google w-100 d-flex align-items-center justify-content-center">
-      <i class="fab fa-google"></i> Sign up with Google
-    </button>
+    <p class="text-center small mb-0">
+      Already have an account? <a href="login.html" class="text-link">Sign in</a>
+    </p>
   </form>
-
-  <p class="text-center mt-4 mb-0 small">
-    Already have an account? <a href="login.html" class="text-link">Sign in</a>
-  </p>
 </div>
 
 <script>
-  function selectRole(btn) {
-    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
   const pwd = document.getElementById('password');
   const pwdConfirm = document.getElementById('passwordConfirm');
   const mismatch = document.getElementById('passwordMismatch');
@@ -275,10 +196,8 @@
     if (pwd.value && pwdConfirm.value) {
       if (pwd.value !== pwdConfirm.value) {
         mismatch.style.display = 'block';
-        pwdConfirm.classList.add('is-invalid');
       } else {
         mismatch.style.display = 'none';
-        pwdConfirm.classList.remove('is-invalid');
       }
     } else {
       mismatch.style.display = 'none';
@@ -290,11 +209,21 @@
 
   document.getElementById('signupForm')?.addEventListener('submit', e => {
     e.preventDefault();
-    if (pwd.value !== pwdConfirm.value) {
-      alert("Passwords don't match");
+
+    const selectedRoles = Array.from(document.querySelectorAll('input[name="roles"]:checked'))
+      .map(cb => cb.value);
+
+    if (selectedRoles.length === 0) {
+      alert("Please select at least one role");
       return;
     }
-    alert('Account creation attempt (demo)');
+
+    if (pwd.value !== pwdConfirm.value) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    alert(`Signup attempt (demo)\nRoles: ${selectedRoles.join(', ') || 'none'}`);
   });
 </script>
 

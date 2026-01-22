@@ -52,31 +52,6 @@
       margin-top: 0.3rem;
     }
 
-    .role-toggle {
-      display: flex;
-      background: rgba(255,255,255,0.06);
-      border-radius: 50px;
-      padding: 4px;
-      margin-bottom: 1.8rem;
-    }
-
-    .role-btn {
-      flex: 1;
-      border: none;
-      background: transparent;
-      color: #cbd5e1;
-      font-weight: 500;
-      padding: 0.65rem;
-      border-radius: 50px;
-      transition: all 0.25s;
-    }
-
-    .role-btn.active {
-      background: #3b82f6;
-      color: white;
-      box-shadow: 0 4px 12px rgba(59,130,246,0.35);
-    }
-
     .form-floating > .form-control,
     .form-floating > .form-control-plaintext {
       padding: 1rem 1.1rem;
@@ -174,12 +149,20 @@
     <div class="subtitle">Secure Cross-Border Trade</div>
   </div>
 
-  <div class="role-toggle">
-    <button class="role-btn active" onclick="selectRole(this)">Importer</button>
-    <button class="role-btn" onclick="selectRole(this)">Exporter</button>
-  </div>
-
   <form id="loginForm">
+    <div class="mb-3">
+      <label class="form-label">Select Role</label>
+      <select class="form-select" id="role" required>
+        <option value="" disabled selected>Choose your role</option>
+        <option value="admin">Admin</option>
+        <option value="importer">Importer</option>
+        <option value="exporter">Exporter</option>
+        <option value="importer_exporter">Importer & Exporter</option>
+        <option value="cha_agent">CHA Agent</option>
+        <option value="customer_care">Customer Care</option>
+      </select>
+    </div>
+
     <div class="form-floating mb-3">
       <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
       <label for="email">Email address</label>
@@ -211,11 +194,6 @@
 </div>
 
 <script>
-  function selectRole(btn) {
-    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-
   document.getElementById('loginForm')?.addEventListener('submit', e => {
     e.preventDefault();
     alert('Login attempt (demo)');
