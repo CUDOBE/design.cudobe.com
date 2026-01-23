@@ -1,0 +1,89 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fb;
+}
+
+/* Glass Navbar */
+.glass-nav {
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.7);
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(120deg, #051937, #004d7a);
+  display: flex;
+  align-items: center;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.1);
+  padding: 50px;
+  border-radius: 20px;
+  color: white;
+}
+
+.hero span { color: #ffc107; }
+
+/* Trust strip */
+.trust-strip {
+  background: white;
+  padding: 15px;
+  font-weight: 600;
+}
+
+/* Login */
+.login-box {
+  padding: 30px;
+  border-radius: 20px;
+}
+
+/* Page Header */
+.page-header {
+  background: linear-gradient(90deg, #004d7a, #008793);
+  color: white;
+  padding: 60px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Timeline */
+.timeline .step {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline .step span {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background: #004d7a;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Verification Cards */
+.verify-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+/* Footer */
+.footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 15px;
+}
