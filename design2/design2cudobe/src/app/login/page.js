@@ -5,33 +5,59 @@ export default function LoginPage() {
     <>
       <Navbar />
 
-      {/* Page background wrapper */}
-      <section className="login-page section">
+      <section className="login-page d-flex align-items-center">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-md-5">
-              <h2 className="text-center mb-1">Login</h2>
+            <div className="col-md-6 col-lg-5">
 
-              {/* Subtitle */}
-              <p className="text-center text-muted mb-4">
-                Access your verified trade documents
-              </p>
+              {/* Header */}
+              <div className="text-center mb-4">
+                <h5 className="welcome-text">Welcome back</h5>
+                <h1 className="brand-title">Cudobe</h1>
+                <p className="text-muted">
+                  Access your verified trade documents
+                </p>
+              </div>
 
-              <form className="card p-4 shadow">
+              <form className="card p-4 shadow-lg login-card">
                 <div className="mb-3">
                   <label className="form-label">Email</label>
                   <input type="email" className="form-control" />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-2">
                   <label className="form-label">Password</label>
                   <input type="password" className="form-control" />
                 </div>
 
-                <button className="btn btn-primary-custom w-100">
+                {/* Forgot password */}
+                <div className="text-end mb-3">
+                  <span className="forgot-link">Forgot password?</span>
+                </div>
+
+                <button
+                  type="button"
+                  className="btn btn-outline-dark w-100"
+                >
+                  <i className="fa-brands  me-2"></i>
                   Login
                 </button>
+
+                {/* Divider */}
+                <div className="divider">
+                  <span>or</span>
+                </div>
+
+                {/* Google Login */}
+                <button
+                  type="button"
+                  className="btn btn-outline-dark w-100 google-btn"
+                >
+                  <i className="fa-brands fa-google me-2"></i>
+                  Login with Google
+                </button>
               </form>
+
             </div>
           </div>
         </div>

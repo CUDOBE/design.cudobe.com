@@ -158,3 +158,178 @@ footer {
   display: flex;
   align-items: center;
 }
+/* Brand */
+.brand-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #2c5364;
+}
+
+.brand-subtitle {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-top: -5px;
+}
+
+/* Upload Box */
+.upload-box {
+  border: 2px dashed #2c5364;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  background: #f8fafb;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  background: #eef3f6;
+  border-color: #203a43;
+}
+
+.upload-input {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.upload-hint {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 8px;
+}
+.register-page {
+  min-height: 100vh;
+  padding-top: 100px; /* adjust to navbar height */
+  background: linear-gradient(135deg, #eef2f3, #ffffff);
+}
+.account-type-box {
+  display: flex;
+  gap: 12px;
+}
+
+.type-option {
+  flex: 1;
+  border: 2px solid #e0e6ed;
+  border-radius: 10px;
+  padding: 14px 0;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  background: #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.type-option input {
+  display: none;
+}
+
+/* Hover effect */
+.type-option:hover {
+  border-color: #3b82f6;
+  background: #eef5ff;
+}
+
+/* Selected state */
+.type-option input:checked + span {
+  color: #fff;
+}
+
+.type-option:has(input:checked) {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border-color: #2563eb;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+}
+/* Login page background */
+.login-page {
+  min-height: 100vh;
+  padding-top: 100px; /* prevents navbar overlap */
+  background: linear-gradient(135deg, #eef2f3, #ffffff);
+}
+
+/* Welcome text */
+.welcome-text {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #6c757d;
+  text-transform: uppercase;
+}
+
+/* Reuse brand title */
+.brand-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #2c5364;
+  margin-bottom: 4px;
+}
+
+/* Card */
+.login-card {
+  border-radius: 16px;
+  border: none;
+}
+
+/* Forgot password */
+.forgot-link {
+  font-size: 0.85rem;
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 10px;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ddd;
+  z-index: -1;
+}
+
+/* Google button */
+.google-btn {
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 500;
+}
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg-color: #f4f7fb;
+  --card-bg: #ffffff;
+  --text-color: #1f2937;
+  --muted-text: #6b7280;
+  --primary-color: #2563eb;
+  --border-color: #e5e7eb;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --card-bg: #111827;
+  --text-color: #e5e7eb;
+  --muted-text: #9ca3af;
+  --primary-color: #3b82f6;
+  --border-color: #1f2937;
+}
+
+

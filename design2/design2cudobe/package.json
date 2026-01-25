@@ -1,21 +1,8 @@
 {
-  "name": "design2cudobe",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
   "dependencies": {
-    "gsap": "^3.14.2",
-    "next": "16.1.4",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
-  },
-  "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "16.1.4"
+    "@prisma/client": "^7.3.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.2.3",
+    "prisma": "^7.3.0"
   }
 }

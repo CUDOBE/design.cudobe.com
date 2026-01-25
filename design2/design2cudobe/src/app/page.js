@@ -66,7 +66,7 @@ export default function HomePage() {
     <>
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg fixed-top">
-        <div className="container">
+        <div className=" container">
           <a className="navbar-brand" href="#">Cudobe</a>
           <button
             className="navbar-toggler"
@@ -83,7 +83,7 @@ export default function HomePage() {
               <li className="nav-item"><a className="nav-link" href="#stats">Why Cudobe</a></li>
               <li className="nav-item"><a className="nav-link" href="/login">Login</a></li>
               <li className="nav-item ms-2">
-                <a className="btn btn-primary-custom" href="/signup">Register</a>
+                <a className="btn btn-primary-custom" href="/register">Register</a>
               </li>
             </ul>
           </div>

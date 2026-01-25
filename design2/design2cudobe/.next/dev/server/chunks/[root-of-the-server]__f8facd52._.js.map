@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":["file:///D:/cudobe1/design.cudobe.com/design2/design2cudobe/src/app/api/uploadDocs/route.js"],"sourcesContent":["export async function POST(request) {\r\n  const formData = await request.formData();\r\n\r\n  const file = formData.get(\"commercial_invoice\");\r\n\r\n  if (!file) {\r\n    return Response.json(\r\n      { error: \"No file received\" },\r\n      { status: 400 }\r\n    );\r\n  }\r\n\r\n  return Response.json({\r\n    success: true,\r\n    fileName: file.name,\r\n    fileType: file.type,\r\n    fileSize: file.size,\r\n  });\r\n}\r\n"],"names":[],"mappings":";;;;AAAO,eAAe,KAAK,OAAO;IAChC,MAAM,WAAW,MAAM,QAAQ,QAAQ;IAEvC,MAAM,OAAO,SAAS,GAAG,CAAC;IAE1B,IAAI,CAAC,MAAM;QACT,OAAO,SAAS,IAAI,CAClB;YAAE,OAAO;QAAmB,GAC5B;YAAE,QAAQ;QAAI;IAElB;IAEA,OAAO,SAAS,IAAI,CAAC;QACnB,SAAS;QACT,UAAU,KAAK,IAAI;QACnB,UAAU,KAAK,IAAI;QACnB,UAAU,KAAK,IAAI;IACrB;AACF"}}]
+}
